@@ -66,13 +66,20 @@
     methods:{
       submit(){
         let vm = this
-        this.$http.post("/api/login",{
-          "login":this.login,
+        this.$http.post("/api/user/login",{
+          "username":this.username,
           "password":this.password
         }).then(res=>{
-          localStorage.setItem("username",res.data)
-          localStorage.setItem("enable","true")
-          vm.$router.push("/usercabinet")
+
+
+          console.log(res.data)
+          localStorage.setItem("username",res.data.username)
+          localStorage.setItem("userRole",res.data.userRole)
+          localStorage.setItem("signature",res.data.signature)
+          setTimeout(()=>{
+            vm.$router.push("/usercabinet")
+          },500)
+
         },e=>{
           alert("Ошибка!" + e.response.data.message)
         })
