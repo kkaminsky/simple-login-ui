@@ -70,8 +70,6 @@
           "username":this.username,
           "password":this.password
         }).then(res=>{
-
-
           console.log(res.data)
           localStorage.setItem("username",res.data.username)
           localStorage.setItem("userRole",res.data.userRole)
