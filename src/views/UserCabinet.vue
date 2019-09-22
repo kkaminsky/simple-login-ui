@@ -7,15 +7,18 @@
       </v-flex>
     </v-container>
     <admin-component v-if="admin"></admin-component>
+    <file-component></file-component>
   </div>
 
 </template>
 
 <script>
   import AdminComponent from '../components/AdminComponent'
+  import FileComponent from  '../components/FileComponent'
     export default {
         name: "UserCabinet",
       components:{
+        FileComponent,
           AdminComponent
       },
       computed:{
